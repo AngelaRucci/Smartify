@@ -11,6 +11,7 @@
 @interface ViewController : UIViewController
 
 @property NSDictionary *wordValues;
+@property NSArray *commonWords;
 
 @end
 

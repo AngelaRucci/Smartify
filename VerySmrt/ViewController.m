@@ -53,29 +53,7 @@
                              tenPoints,@"z"
                              ,nil];
     
-    
-    //NSMutableArray *partsOfSpeech = [self stringWithPartsOfSpeech:self.testText.text];
-    //NSMutableArray *replacmentIndexes = [self indexesOfPotentialReplacementsInString:self.testText.text withPoS:partsOfSpeech andScoreCard:self.wordValues];
-    //NSLog(@"replace at:%@",replacmentIndexes);
-    //[self replaceWithSmartWordAtIndex:(int)[[replacmentIndexes objectAtIndex:2] integerValue] inMessage:self.testText.text forPoS:[partsOfSpeech objectAtIndex:9] andScorecard:self.wordValues];
-    // Do any additional setup after loading the view, typically from a nib.
-//    NSURL *url = [NSURL URLWithString:@"http://words.bighugelabs.com/api/2/d11a93e5b59a8147b5087cdd81ff70dc/good/json"];
-//    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//    [NSURLConnection sendAsynchronousRequest:request
-//                                       queue:[NSOperationQueue mainQueue]
-//                           completionHandler:^(NSURLResponse *response,
-//                                               NSData *data, NSError *connectionError)
-//     {
-//         if (data.length > 0 && connectionError == nil)
-//         {
-//             NSDictionary *wordData = [NSJSONSerialization JSONObjectWithData:data
-//                                                                      options:0
-//                                                                        error:NULL];
-//             NSLog(@"%@",wordData);
-//         }else{
-//             NSLog(@"nothing");
-//         }
-//     }];
+    self.commonWords = [[NSArray alloc] initWithObjects:@"will",@"make", nil];
 }
 - (IBAction)smartify:(id)sender {
     NSMutableArray *partsOfSpeech = [self stringWithPartsOfSpeech:self.testText.text];
@@ -113,7 +91,8 @@
                  for (i=0; i<synonyms.count; i++) {
                      NSString *synonym = [synonyms objectAtIndex:i];
                      int score = [self scoreForWord:synonym scoreCard:scoreCard];
-                     if (score>biggestScore) {
+                     NSArray *wordsInSyn = [synonym componentsSeparatedByString:@" "];
+                     if (score>biggestScore&&!(wordsInSyn.count>1)) {
                          biggestScore = score;
                          biggestWord = synonym;
                      }
@@ -122,7 +101,6 @@
                  [currentWords replaceObjectAtIndex:index withObject:[biggestWord stringByReplacingOccurrencesOfString:@" " withString:@"_"]];
                  [self.testText setText:[currentWords componentsJoinedByString:@" "]];
              }
-             //NSLog(@"value for pos %@:%@",PoS,[wordData valueForKey:[PoS lowercaseString]]);
          }else{
              NSLog(@"nothing");
          }
@@ -135,7 +113,7 @@
     int i;
     for (i=0; i<PoS.count; i++) {
         NSString *partOfSpeech = [PoS objectAtIndex:i];
-        if ([partOfSpeech isEqualToString:@"Verb"]||[partOfSpeech isEqualToString:@"Adjective"]) {
+        if (([partOfSpeech isEqualToString:@"Verb"]||[partOfSpeech isEqualToString:@"Adjective"]||[partOfSpeech isEqualToString:@"Noun"])&& ![self.commonWords containsObject:[words objectAtIndex:i]]) {
             int score = [self scoreForWord:[words objectAtIndex:i] scoreCard:scoreCard];
             if (score>5) {
                 [indexes addObject:[NSNumber numberWithInt:i]];
@@ -146,9 +124,7 @@
 }
 
 -(NSMutableArray*)stringWithPartsOfSpeech:(NSString*)string{
-    //NSDictionary *detailedString = [[NSDictionary alloc] init];
     NSMutableArray *pos = [[NSMutableArray alloc] init];
-    //NSMutableArray *wordIds = [[NSMutableArray alloc] init];
     NSLinguisticTagger *tagger = [[NSLinguisticTagger alloc] initWithTagSchemes:[NSArray arrayWithObject:NSLinguisticTagSchemeLexicalClass] options:~NSLinguisticTaggerOmitWords];
     [tagger setString:string];
     [tagger enumerateTagsInRange:NSMakeRange(0, [string length])
@@ -156,18 +132,8 @@
                          options:~NSLinguisticTaggerOmitWords
                       usingBlock:^(NSString *tag, NSRange tokenRange, NSRange sentenceRange, BOOL *stop) {
                           NSLog(@"found: %@ (%@)", [string substringWithRange:tokenRange], tag);
-                          //NSString *key = [[NSString alloc] initWithString:[string substringWithRange:tokenRange]];
-                          //[detailedString setValue:[NSString stringWithFormat:@"%@",tag] forKey:key];
                           [pos addObject:tag];
                       }];
-    //NSArray *words = [string componentsSeparatedByString:@" "];
-    //int i;
-    //for (i=0; i<words.count; i++) {
-    //    NSNumber *key = [NSNumber numberWithInt:i];
-        //[wordIds addObject:[NSNumber numberWithInt:i]];
-    //    [detailedString setValue:[pos objectAtIndex:i] forKey:[NSString stringWithFormat:@"%ld",(long)[key integerValue]]];
-    //}
-    //detailedString = [NSDictionary dictionaryWithObjects:pos forKeys:wordIds];
     NSLog(@"DETAILED STRING:%@",pos);
     return pos;
 }
@@ -186,7 +152,6 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end
