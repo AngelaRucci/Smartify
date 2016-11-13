@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>7A3F83EB-B41B-4FE1-A0C8-F64C38974375</string>
+	<key>IDESourceControlProjectName</key>
+	<string>VerySmrt</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>044DBE06BF5CDB46425D01249B136667F09A7CBB</key>
+		<string>github.com:angelarucci/Smartify.git</string>
+		<key>FFD4859F9A2E7B2593C8EA32140147B33CD4F35A</key>
+		<string>github.com:angelarucci/Smartify.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>VerySmrt.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>044DBE06BF5CDB46425D01249B136667F09A7CBB</key>
+		<string>../../..</string>
+		<key>FFD4859F9A2E7B2593C8EA32140147B33CD4F35A</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>github.com:angelarucci/Smartify.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>FFD4859F9A2E7B2593C8EA32140147B33CD4F35A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>044DBE06BF5CDB46425D01249B136667F09A7CBB</string>
+			<key>IDESourceControlWCCName</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>FFD4859F9A2E7B2593C8EA32140147B33CD4F35A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>VerySmrt</string>
+		</dict>
+	</array>
+</dict>
+</plist>
