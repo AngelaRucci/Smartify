@@ -30,7 +30,7 @@
                                     <action selector="smartify:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2xn-Ii-eNn"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="I can make apps very good and do smart stuff" translatesAutoresizingMaskIntoConstraints="NO" id="QTC-8G-SP3">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="getting grades do not matter if you learn material" translatesAutoresizingMaskIntoConstraints="NO" id="QTC-8G-SP3">
                                 <rect key="frame" x="0.0" y="71" width="600" height="529"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="textColor" red="0.95375631309999997" green="0.95375631309999997" blue="0.95375631309999997" alpha="1" colorSpace="calibratedRGB"/>

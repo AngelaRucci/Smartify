@@ -85,8 +85,8 @@
              NSArray *synonyms = [thesaurus valueForKey:@"syn"];
              NSLog(@"data:%@",synonyms);
              if(![synonyms isEqual:[NSNull null]]){
-                 NSString *biggestWord = @"";
-                 int biggestScore = 0;
+                 NSString *biggestWord = wordToReplace;
+                 int biggestScore = [self scoreForWord:wordToReplace scoreCard:scoreCard];
                  int i;
                  for (i=0; i<synonyms.count; i++) {
                      NSString *synonym = [synonyms objectAtIndex:i];

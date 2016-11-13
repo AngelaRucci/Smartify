@@ -10,4 +10,7 @@
 
 @interface KeyboardViewController : UIInputViewController
 
+@property NSMutableArray *keyboardKeys;
+@property UITextView *smartText;
+
 @end
