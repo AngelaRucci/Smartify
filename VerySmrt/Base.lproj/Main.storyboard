@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6211" systemVersion="14A298i" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="vXZ-lx-hvc">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6204"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
             <objects>
-                <viewController id="vXZ-lx-hvc" customClass="ViewController" customModuleProvider="" sceneMemberID="viewController">
+                <viewController id="vXZ-lx-hvc" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
@@ -15,8 +16,41 @@
                     <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E7P-h2-bPU">
+                                <rect key="frame" x="263" y="20" width="75" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="7th-wG-IaD"/>
+                                    <constraint firstAttribute="width" constant="75" id="fJp-Wz-427"/>
+                                </constraints>
+                                <state key="normal" title="Smartify">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="smartify:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2xn-Ii-eNn"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="This app will get you to sound really smart" translatesAutoresizingMaskIntoConstraints="NO" id="QTC-8G-SP3">
+                                <rect key="frame" x="0.0" y="71" width="600" height="529"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.95375631309999997" green="0.95375631309999997" blue="0.95375631309999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="QTC-8G-SP3" secondAttribute="trailing" constant="-16" id="9Eb-RG-tYH"/>
+                            <constraint firstAttribute="centerX" secondItem="E7P-h2-bPU" secondAttribute="centerX" constant="-0.5" id="Crc-Wq-cV4"/>
+                            <constraint firstItem="QTC-8G-SP3" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="-16" id="E7G-yb-3DJ"/>
+                            <constraint firstItem="QTC-8G-SP3" firstAttribute="top" secondItem="E7P-h2-bPU" secondAttribute="bottom" constant="21" id="Ggo-jD-CmS"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="QTC-8G-SP3" secondAttribute="bottom" id="QJb-ib-7ZU"/>
+                            <constraint firstItem="E7P-h2-bPU" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="S92-YW-xgj"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="testText" destination="QTC-8G-SP3" id="bAo-uz-L9T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
