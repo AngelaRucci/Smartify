@@ -9,6 +9,15 @@
 /* Begin PBXBuildFile section */
 		3A3468DF1DD8A0D2005CEE4A /* KeyboardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A3468DE1DD8A0D2005CEE4A /* KeyboardViewController.m */; };
 		3A3468E21DD8A0D2005CEE4A /* SmartifyBoard.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 3A3468D91DD8A0D2005CEE4A /* SmartifyBoard.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		3A5BBECE1E351BF2003CA397 /* WordEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BBECD1E351BF2003CA397 /* WordEntry.m */; };
+		3A5BBED11E3576C5003CA397 /* WordConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BBED01E3576C5003CA397 /* WordConstructor.m */; };
+		3A5BBED71E41282A003CA397 /* brain.png in Resources */ = {isa = PBXBuildFile; fileRef = 3A5BBED61E41282A003CA397 /* brain.png */; };
+		3A5BBEE01E4132F6003CA397 /* Smartify.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BBEDF1E4132F6003CA397 /* Smartify.m */; };
+		3A5BBEE31E414604003CA397 /* WordConstructor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BBEE21E414604003CA397 /* WordConstructor.m */; };
+		3A5BBEE61E41463C003CA397 /* WordEntry.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BBEE51E41463C003CA397 /* WordEntry.m */; };
+		3A5BBEE91E4147E4003CA397 /* InputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BBEE81E4147E4003CA397 /* InputView.m */; };
+		3A5BBEEC1E414ABA003CA397 /* LoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BBEEB1E414ABA003CA397 /* LoadingView.m */; };
+		3A5BBEEF1E42A72F003CA397 /* ResultPreviewView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A5BBEEE1E42A72F003CA397 /* ResultPreviewView.m */; };
 		3A79B4E41DBAC0D700C77E75 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79B4E31DBAC0D700C77E75 /* main.m */; };
 		3A79B4E71DBAC0D700C77E75 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79B4E61DBAC0D700C77E75 /* AppDelegate.m */; };
 		3A79B4EA1DBAC0D700C77E75 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A79B4E91DBAC0D700C77E75 /* ViewController.m */; };
@@ -54,6 +63,23 @@
 		3A3468DC1DD8A0D2005CEE4A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A3468DD1DD8A0D2005CEE4A /* KeyboardViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyboardViewController.h; sourceTree = "<group>"; };
 		3A3468DE1DD8A0D2005CEE4A /* KeyboardViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyboardViewController.m; sourceTree = "<group>"; };
+		3A5BBECC1E351BF2003CA397 /* WordEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordEntry.h; sourceTree = "<group>"; };
+		3A5BBECD1E351BF2003CA397 /* WordEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordEntry.m; sourceTree = "<group>"; };
+		3A5BBECF1E3576C5003CA397 /* WordConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordConstructor.h; sourceTree = "<group>"; };
+		3A5BBED01E3576C5003CA397 /* WordConstructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordConstructor.m; sourceTree = "<group>"; };
+		3A5BBED61E41282A003CA397 /* brain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brain.png; sourceTree = "<group>"; };
+		3A5BBEDE1E4132F6003CA397 /* Smartify.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Smartify.h; sourceTree = "<group>"; };
+		3A5BBEDF1E4132F6003CA397 /* Smartify.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Smartify.m; sourceTree = "<group>"; };
+		3A5BBEE11E414604003CA397 /* WordConstructor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordConstructor.h; sourceTree = "<group>"; };
+		3A5BBEE21E414604003CA397 /* WordConstructor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordConstructor.m; sourceTree = "<group>"; };
+		3A5BBEE41E41463C003CA397 /* WordEntry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WordEntry.h; sourceTree = "<group>"; };
+		3A5BBEE51E41463C003CA397 /* WordEntry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WordEntry.m; sourceTree = "<group>"; };
+		3A5BBEE71E4147E4003CA397 /* InputView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InputView.h; sourceTree = "<group>"; };
+		3A5BBEE81E4147E4003CA397 /* InputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InputView.m; sourceTree = "<group>"; };
+		3A5BBEEA1E414ABA003CA397 /* LoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingView.h; sourceTree = "<group>"; };
+		3A5BBEEB1E414ABA003CA397 /* LoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingView.m; sourceTree = "<group>"; };
+		3A5BBEED1E42A72F003CA397 /* ResultPreviewView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultPreviewView.h; sourceTree = "<group>"; };
+		3A5BBEEE1E42A72F003CA397 /* ResultPreviewView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultPreviewView.m; sourceTree = "<group>"; };
 		3A79B4DE1DBAC0D700C77E75 /* VerySmrt.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VerySmrt.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3A79B4E21DBAC0D700C77E75 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3A79B4E31DBAC0D700C77E75 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -99,6 +125,19 @@
 			children = (
 				3A3468DD1DD8A0D2005CEE4A /* KeyboardViewController.h */,
 				3A3468DE1DD8A0D2005CEE4A /* KeyboardViewController.m */,
+				3A5BBEE71E4147E4003CA397 /* InputView.h */,
+				3A5BBEE81E4147E4003CA397 /* InputView.m */,
+				3A5BBEEA1E414ABA003CA397 /* LoadingView.h */,
+				3A5BBEEB1E414ABA003CA397 /* LoadingView.m */,
+				3A5BBEED1E42A72F003CA397 /* ResultPreviewView.h */,
+				3A5BBEEE1E42A72F003CA397 /* ResultPreviewView.m */,
+				3A5BBEE41E41463C003CA397 /* WordEntry.h */,
+				3A5BBEE51E41463C003CA397 /* WordEntry.m */,
+				3A5BBEE11E414604003CA397 /* WordConstructor.h */,
+				3A5BBEE21E414604003CA397 /* WordConstructor.m */,
+				3A5BBEDE1E4132F6003CA397 /* Smartify.h */,
+				3A5BBEDF1E4132F6003CA397 /* Smartify.m */,
+				3A5BBED61E41282A003CA397 /* brain.png */,
 				3A3468DB1DD8A0D2005CEE4A /* Supporting Files */,
 			);
 			path = SmartifyBoard;
@@ -139,6 +178,10 @@
 				3A79B4E61DBAC0D700C77E75 /* AppDelegate.m */,
 				3A79B4E81DBAC0D700C77E75 /* ViewController.h */,
 				3A79B4E91DBAC0D700C77E75 /* ViewController.m */,
+				3A5BBECF1E3576C5003CA397 /* WordConstructor.h */,
+				3A5BBED01E3576C5003CA397 /* WordConstructor.m */,
+				3A5BBECC1E351BF2003CA397 /* WordEntry.h */,
+				3A5BBECD1E351BF2003CA397 /* WordEntry.m */,
 				3A79B4EB1DBAC0D700C77E75 /* Main.storyboard */,
 				3A79B4EE1DBAC0D700C77E75 /* Images.xcassets */,
 				3A79B4F01DBAC0D700C77E75 /* LaunchScreen.xib */,
@@ -241,6 +284,7 @@
 				TargetAttributes = {
 					3A3468D81DD8A0D2005CEE4A = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = 43MVGJ263M;
 					};
 					3A79B4DD1DBAC0D700C77E75 = {
 						CreatedOnToolsVersion = 6.4;
@@ -276,6 +320,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A5BBED71E41282A003CA397 /* brain.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -303,6 +348,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A5BBEE61E41463C003CA397 /* WordEntry.m in Sources */,
+				3A5BBEEF1E42A72F003CA397 /* ResultPreviewView.m in Sources */,
+				3A5BBEEC1E414ABA003CA397 /* LoadingView.m in Sources */,
+				3A5BBEE31E414604003CA397 /* WordConstructor.m in Sources */,
+				3A5BBEE91E4147E4003CA397 /* InputView.m in Sources */,
+				3A5BBEE01E4132F6003CA397 /* Smartify.m in Sources */,
 				3A3468DF1DD8A0D2005CEE4A /* KeyboardViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -311,7 +362,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A5BBECE1E351BF2003CA397 /* WordEntry.m in Sources */,
 				3A79B4EA1DBAC0D700C77E75 /* ViewController.m in Sources */,
+				3A5BBED11E3576C5003CA397 /* WordConstructor.m in Sources */,
 				3A79B4E71DBAC0D700C77E75 /* AppDelegate.m in Sources */,
 				3A79B4E41DBAC0D700C77E75 /* main.m in Sources */,
 			);
@@ -363,13 +416,17 @@
 		3A3468E31DD8A0D2005CEE4A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = SmartifyBoard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Debug;
@@ -377,9 +434,13 @@
 		3A3468E41DD8A0D2005CEE4A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SmartifyBoard/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -528,6 +589,7 @@
 				3A3468E41DD8A0D2005CEE4A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3A79B4D91DBAC0D700C77E75 /* Build configuration list for PBXProject "VerySmrt" */ = {
 			isa = XCConfigurationList;

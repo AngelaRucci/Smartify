@@ -23,6 +23,7 @@
                                     <constraint firstAttribute="height" constant="30" id="7th-wG-IaD"/>
                                     <constraint firstAttribute="width" constant="75" id="fJp-Wz-427"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" name="SnellRoundhand" family="Snell Roundhand" pointSize="15"/>
                                 <state key="normal" title="Smartify">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -30,7 +31,7 @@
                                     <action selector="smartify:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="2xn-Ii-eNn"/>
                                 </connections>
                             </button>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="getting grades do not matter if you learn material" translatesAutoresizingMaskIntoConstraints="NO" id="QTC-8G-SP3">
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="this is a word" translatesAutoresizingMaskIntoConstraints="NO" id="QTC-8G-SP3">
                                 <rect key="frame" x="0.0" y="71" width="600" height="529"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <color key="textColor" red="0.95375631309999997" green="0.95375631309999997" blue="0.95375631309999997" alpha="1" colorSpace="calibratedRGB"/>

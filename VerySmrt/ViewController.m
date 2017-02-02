@@ -7,6 +7,7 @@
 //
 
 #import "ViewController.h"
+#import "WordConstructor.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UITextView *testText;
@@ -17,6 +18,10 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//    self.foundValue = [[NSMutableString alloc] init];
+//    self.currentSynonyms = [[NSMutableArray alloc] init];
+//    self.currentEntryId = [[NSString alloc] init];
+//    self.currentMeaning = [[NSString alloc] init];
     
     NSNumber *onePoint = [NSNumber numberWithInt:1];
     NSNumber *twoPoints = [NSNumber numberWithInt:2];
@@ -50,10 +55,10 @@
                              eightPoints,@"j",
                              eightPoints,@"x",
                              tenPoints,@"q",
-                             tenPoints,@"z"
+                             fivePoints,@"z"
                              ,nil];
     
-    self.commonWords = [[NSArray alloc] initWithObjects:@"will",@"make", nil];
+    self.commonWords = [[NSArray alloc] initWithObjects:@"will",@"make",@"makes", nil];
 }
 - (IBAction)smartify:(id)sender {
     NSMutableArray *partsOfSpeech = [self stringWithPartsOfSpeech:self.testText.text];
@@ -68,8 +73,28 @@
 -(void)replaceWithSmartWordAtIndex:(int)index inMessage:(NSString*)message forPoS:(NSString*)PoS andScorecard:(NSDictionary*)scoreCard{
     NSMutableArray *words = [[NSMutableArray alloc] initWithArray:[message componentsSeparatedByString:@" "]];
     NSString *wordToReplace = [words objectAtIndex:index];
-    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://words.bighugelabs.com/api/2/d11a93e5b59a8147b5087cdd81ff70dc/%@/json",wordToReplace]];
+    //NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://words.bighugelabs.com/api/2/d11a93e5b59a8147b5087cdd81ff70dc/%@/json",wordToReplace]];
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"http://www.dictionaryapi.com/api/v1/references/thesaurus/xml/%@?key=565d7e80-c25c-4778-9f04-1a518ae41045",wordToReplace]];
     NSLog(@"sending request...");
+//    NSURLSession *session = [NSURLSession sharedSession];
+//    [[session dataTaskWithURL:url
+//            completionHandler:^(NSData *data,
+//                                NSURLResponse *response,
+//                                NSError *error) {
+//                
+//                if (data.length > 0 && error == nil)
+//                {
+//                    self.currentWord = [[WordEntry alloc] init];
+//                    self.currentWord.word = [wordToReplace lowercaseString];
+//                    self.currentWord.partofspeech = [PoS lowercaseString];
+//                    self.currentWord.synonyms = [[NSMutableArray alloc] init];
+//                    self.currentWord.index = index;
+//                    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
+//                    parser.delegate = self;
+//                    [parser parse];
+//                }
+//                
+//            }] resume];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     [NSURLConnection sendAsynchronousRequest:request
                                        queue:[NSOperationQueue mainQueue]
@@ -78,29 +103,44 @@
      {
          if (data.length > 0 && connectionError == nil)
          {
-             NSDictionary *wordData = [NSJSONSerialization JSONObjectWithData:data
-                                                                      options:0
-                                                                        error:NULL];
-             NSDictionary *thesaurus = [wordData valueForKey:[PoS lowercaseString]];
-             NSArray *synonyms = [thesaurus valueForKey:@"syn"];
-             NSLog(@"data:%@",synonyms);
-             if(![synonyms isEqual:[NSNull null]]){
-                 NSString *biggestWord = wordToReplace;
-                 int biggestScore = [self scoreForWord:wordToReplace scoreCard:scoreCard];
-                 int i;
-                 for (i=0; i<synonyms.count; i++) {
-                     NSString *synonym = [synonyms objectAtIndex:i];
-                     int score = [self scoreForWord:synonym scoreCard:scoreCard];
-                     NSArray *wordsInSyn = [synonym componentsSeparatedByString:@" "];
-                     if (score>biggestScore&&!(wordsInSyn.count>1)) {
-                         biggestScore = score;
-                         biggestWord = synonym;
-                     }
-                 }
-                 NSMutableArray *currentWords = [[NSMutableArray alloc]initWithArray:[self.testText.text componentsSeparatedByString:@" "]];
-                 [currentWords replaceObjectAtIndex:index withObject:[biggestWord stringByReplacingOccurrencesOfString:@" " withString:@"_"]];
-                 [self.testText setText:[currentWords componentsJoinedByString:@" "]];
-             }
+//             self.currentWord = [[WordEntry alloc] init];
+//             self.currentWord.word = [wordToReplace lowercaseString];
+//             self.currentWord.partofspeech = [PoS lowercaseString];
+//             self.currentWord.synonyms = [[NSMutableDictionary alloc] init];
+//             self.currentWord.index = index;
+             WordConstructor *wordbuilder = [[WordConstructor alloc] initWithScorecard:self.wordValues andData:data];
+             [wordbuilder parseForWord:[wordToReplace lowercaseString] andPoS:[PoS lowercaseString]];
+             //NSMutableArray *currentWords = [[NSMutableArray alloc]initWithArray:[self.testText.text componentsSeparatedByString:@" "]];
+             //[currentWords replaceObjectAtIndex:index withObject:[wordbuilder.currentWord.replacement stringByReplacingOccurrencesOfString:@" " withString:@"_"]];
+             //[self.testText setText:[currentWords componentsJoinedByString:@" "]];
+             //NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
+             //parser.delegate = self;
+             //[parser parse];
+             //NSLog(@"data:%@", [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
+//             NSDictionary *wordData = [NSJSONSerialization JSONObjectWithData:data
+//                                                                      options:0
+//                                                                        error:NULL];
+//             NSDictionary *thesaurus = [wordData valueForKey:[PoS lowercaseString]];
+//             NSArray *synonyms = [thesaurus valueForKey:@"syn"];
+//             NSLog(@"data:%@",synonyms);
+//             if(![synonyms isEqual:[NSNull null]]){
+//                 NSString *biggestWord = wordToReplace;
+//                 int biggestScore = [self scoreForWord:wordToReplace scoreCard:scoreCard];
+//                 int i;
+//                 for (i=0; i<synonyms.count; i++) {
+//                     NSString *synonym = [synonyms objectAtIndex:i];
+//                     int score = [self scoreForWord:synonym scoreCard:scoreCard];
+//                     NSArray *wordsInSyn = [synonym componentsSeparatedByString:@" "];
+//                     //score = score/wordsInSyn;
+//                     if (score>biggestScore&&wordsInSyn.count<=2) {
+//                         biggestScore = score;
+//                         biggestWord = synonym;
+//                     }
+//                 }
+//                 NSMutableArray *currentWords = [[NSMutableArray alloc]initWithArray:[self.testText.text componentsSeparatedByString:@" "]];
+//                 [currentWords replaceObjectAtIndex:index withObject:[biggestWord stringByReplacingOccurrencesOfString:@" " withString:@"_"]];
+//                 [self.testText setText:[currentWords componentsJoinedByString:@" "]];
+//             }
          }else{
              NSLog(@"nothing");
          }
@@ -153,5 +193,86 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+
+//- (void)parserDidStartDocument:(NSXMLParser *)parser{
+//    
+//}
+//
+//- (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict{
+//    if ([elementName isEqualToString:@"entry"]) {
+//        self.currentIsValidReplacement = false;
+//        self.currentEntryId = [attributeDict objectForKey:@"id"];
+//    }
+//    if ([elementName isEqualToString:@"sens"]) {
+//        [self.currentSynonyms removeAllObjects];
+//    }
+//    self.currentElement = elementName;
+//}
+//
+//-(void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName{
+//    if ([elementName isEqualToString:@"fl"]) {
+//        NSLog(@"pos:%@",self.foundValue);
+//        if ([self.currentWord.partofspeech isEqualToString:self.foundValue]) {
+//            self.currentIsValidReplacement = true;
+//        }
+//    }
+//    if ([elementName isEqualToString:@"syn"]) {
+//        [self.currentSynonyms addObjectsFromArray:[self.foundValue componentsSeparatedByString:@", "]];
+//    }
+////    if ([elementName isEqualToString:@"entry"]) {
+////        if (self.currentIsValidReplacement && [self.currentEntryId isEqualToString:[self.currentWord.word lowercaseString]]) {
+////            NSLog(@"adding synonyms");
+////            //[self.currentWord.synonyms addObjectsFromArray:self.currentSynonyms];
+////        }
+////        [self.currentSynonyms removeAllObjects];
+////    }
+//    if ([elementName isEqualToString:@"sens"]) {
+//        [self.currentWord.synonyms setObject:self.currentSynonyms forKey:self.currentMeaning];
+//        self.currentMeaning = @"";
+//        [self.currentSynonyms removeAllObjects];
+//    }
+//    if ([elementName isEqualToString:@"mc"]) {
+//        self.currentMeaning = self.foundValue;
+//    }
+//    
+//    [self.foundValue setString:@""];
+//}
+//
+//-(void)parser:(NSXMLParser *)parser foundCharacters:(NSString *)string{
+//    if ([self.currentElement isEqualToString:@"fl"] || [self.currentElement isEqualToString:@"syn"] || [self.currentElement isEqualToString:@"mc"]) {
+//        if (![string isEqualToString:@"\n"]) {
+//            [self.foundValue appendString:string];
+//        }
+//    }
+//}
+//
+//-(void)parserDidEndDocument:(NSXMLParser *)parser{
+//    NSLog(@"finished stuff");
+//    NSString *biggestWord = self.currentWord.word;
+//    int biggestScore = [self scoreForWord:biggestWord scoreCard:self.wordValues];
+//    int i;
+//    NSArray *keys = [self.currentWord.synonyms allKeys];
+//    for (i=0; i<keys.count; i++) {
+//        NSArray *synonyms = [self.currentWord.synonyms objectForKey:[keys objectAtIndex:i]];
+//        int j;
+//        for (j=0; j<synonyms.count; j++) {
+//            NSString *synonym = [synonyms objectAtIndex:j];
+//            NSLog(@"syn:%@",synonym);
+//            int score = [self scoreForWord:synonym scoreCard:self.wordValues];
+//            NSArray *wordsInSyn = [synonym componentsSeparatedByString:@" "];
+//            //score = score/wordsInSyn;
+//            if (score>biggestScore&&wordsInSyn.count<=2) {
+//                biggestScore = score;
+//                biggestWord = synonym;
+//            }
+//        }
+//    }
+//    NSMutableArray *currentWords = [[NSMutableArray alloc]initWithArray:[self.testText.text componentsSeparatedByString:@" "]];
+//    [currentWords replaceObjectAtIndex:self.currentWord.index withObject:[biggestWord stringByReplacingOccurrencesOfString:@" " withString:@"_"]];
+//    [self.testText setText:[currentWords componentsJoinedByString:@" "]];
+//
+//}
+
 
 @end

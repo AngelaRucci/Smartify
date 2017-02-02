@@ -7,10 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Smartify.h"
+#import "InputView.h"
+#import "LoadingView.h"
 
 @interface KeyboardViewController : UIInputViewController
 
-@property NSMutableArray *keyboardKeys;
-@property UITextView *smartText;
+//@property NSMutableArray *keyboardKeys;
+//@property UITextView *smartText;
+@property InputView *inputVieww;
+@property LoadingView *loadVieww;
+@property Smartify *smartifier;
 
 @end

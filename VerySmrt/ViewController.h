@@ -7,11 +7,21 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WordEntry.h"
 
 @interface ViewController : UIViewController
 
 @property NSDictionary *wordValues;
 @property NSArray *commonWords;
+//@property WordEntry *currentWord;
+//@property NSString *currentElement;
+//@property NSMutableString *foundValue;
+//@property NSMutableArray *currentSynonyms;
+//@property BOOL currentIsValidReplacement;
+//@property BOOL canProcessNextWord;
+//@property NSString *currentEntryId;
+//@property NSString *finalBiggestWord;
+//@property NSString *currentMeaning;
 
 @end
 
